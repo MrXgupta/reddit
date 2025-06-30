@@ -1,0 +1,13 @@
+services:
+  bot:
+    build: ./bot
+    env_file: ./bot/.env
+    depends_on:
+      - summarizer
+    restart: always
+
+  summarizer:
+    build: ./summarizer
+    ports:
+      - "5000:5000"
+    restart: always
